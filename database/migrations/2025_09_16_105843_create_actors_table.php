@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->date('birth_date')->nullable();
-            $table->enum('gender', ['woman', 'man', 'egyéb'])->nullable();
+            $table->enum('gender', ['nő', 'férfi', 'egyéb'])->nullable();
             $table->string('image')->nullable();
         });
     }

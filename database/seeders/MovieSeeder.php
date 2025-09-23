@@ -17,16 +17,47 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-        $movie = Movie::create([
-            'title' => 'Inception',
-            'description' => 'A mind-bending thriller.',
-            'director_id' => Director::where('name','Christopher Nolan')->first()->id,
-            'category_id' => Category::where('name','Action')->first()->id,
-            'cover_image' => 'inception.jpg'
-        ]);
+        $movies = [
+            [
+                'title'=>'Eredet',
+                'description'=>'Egy izgalmas thriller, amelyben az álmok világában játszódik.',
+                'director_id'=>1,
+                'category_id'=>1,
+                'actors'=>[1,2]
+            ],
+            [
+                'title'=>'Titanic',
+                'description'=>'Egy romantikus dráma a híres Titanic hajón.',
+                'director_id'=>5,
+                'category_id'=>5,
+                'actors'=>[1,5]
+            ],
+            [
+                'title'=>'Ponyvaregény',
+                'description'=>'Bűnügyi történetek fekete humorral fűszerezve.',
+                'director_id'=>3,
+                'category_id'=>7,
+                'actors'=>[2,4]
+            ],
+            [
+                'title'=>'Bosszúállók: Végjáték',
+                'description'=>'Szuperhősök egyesülnek, hogy megmentsék a világot.',
+                'director_id'=>6,
+                'category_id'=>1,
+                'actors'=>[3,4,6]
+            ]
+        ];
 
-        $movie->actors()->attach([
-            Actor::where('name','Leonardo DiCaprio')->first()->id
-        ]);
+        foreach ($movies as $m) {
+            $movie = Movie::create([
+                'title'=>$m['title'],
+                'description'=>$m['description'],
+                'director_id'=>$m['director_id'],
+                'category_id'=>$m['category_id']
+            ]);
+
+            // Színészek hozzáadása many-to-many kapcsolaton keresztül
+            $movie->actors()->attach($m['actors']);
+        }
     }
 }

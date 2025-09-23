@@ -13,8 +13,17 @@ class DirectorSeeder extends Seeder
      */
     public function run(): void
     {
-        Director::create(['name' => 'Christopher Nolan']);
-        Director::create(['name' => 'Steven Spielberg']);
-        Director::create(['name' => 'Quentin Tarantino']);
+        $directors = [
+            'Christopher Nolan',
+            'Steven Spielberg',
+            'Quentin Tarantino',
+            'Martin Scorsese',
+            'James Cameron',
+            'Peter Jackson'
+        ];
+
+        foreach ($directors as $dir) {
+            Director::create(['name' => $dir]);
+        }
     }
 }

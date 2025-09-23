@@ -14,8 +14,19 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create(['name' => 'Action']);
-        Category::create(['name' => 'Drama']);
-        Category::create(['name' => 'Comedy']);
+        $categories = [
+            'Akció',
+            'Vígjáték',
+            'Dráma',
+            'Horror',
+            'Romantikus',
+            'Sci-Fi',
+            'Thriller',
+            'Fantasy'
+        ];
+
+        foreach ($categories as $cat) {
+            Category::create(['name' => $cat]);
+        }
     }
 }

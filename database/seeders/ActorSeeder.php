@@ -14,8 +14,17 @@ class ActorSeeder extends Seeder
      */
     public function run(): void
     {
-        Actor::create(['name' => 'Leonardo DiCaprio', 'gender' => 'man']);
-        Actor::create(['name' => 'Meryl Streep', 'gender' => 'woman']);
-        Actor::create(['name' => 'Brad Pitt', 'gender' => 'man']);
+        $actors = [
+            ['name'=>'Leonardo DiCaprio','gender'=>'férfi','birth_date'=>'1974-11-11'],
+            ['name'=>'Brad Pitt','gender'=>'férfi','birth_date'=>'1963-12-18'],
+            ['name'=>'Scarlett Johansson','gender'=>'nő','birth_date'=>'1984-11-22'],
+            ['name'=>'Natalie Portman','gender'=>'nő','birth_date'=>'1981-06-09'],
+            ['name'=>'Tom Hanks','gender'=>'férfi','birth_date'=>'1956-07-09'],
+            ['name'=>'Emma Stone','gender'=>'nő','birth_date'=>'1988-11-06']
+        ];
+
+        foreach ($actors as $actor) {
+            Actor::create($actor);
+        }
     }
 }
