@@ -25,7 +25,7 @@ class ActorController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'birth_date' => 'nullable|date',
-            'gender' => 'nullable|in:man,woman,egyéb',
+            'gender' => 'nullable|in:férfi,nő,egyéb',
             'image' => 'nullable|image|max:2048',
         ]);
 
@@ -60,7 +60,7 @@ class ActorController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'birth_date' => 'nullable|date',
-            'gender' => 'nullable|in:man,woman,egyéb',
+            'gender' => 'nullable|in:férfi,nő,egyéb',
             'image' => 'nullable|image|max:2048',
         ]);
 

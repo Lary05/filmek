@@ -35,8 +35,8 @@
         <label for="gender">Gender:</label><br>
         <select name="gender" id="gender" style="width:100%; padding:8px;">
             <option value="">-- Select Gender --</option>
-            <option value="woman" {{ old('gender')=='nő' ? 'selected' : '' }}>Nő</option>
-            <option value="man" {{ old('gender')=='férfi' ? 'selected' : '' }}>Férfi</option>
+            <option value="férfi" {{ old('gender')=='férfi' ? 'selected' : '' }}>Férfi</option>
+            <option value="nő" {{ old('gender')=='nő' ? 'selected' : '' }}>Nő</option>
             <option value="egyéb" {{ old('gender')=='egyéb' ? 'selected' : '' }}>Egyéb</option>
         </select>
     </div>

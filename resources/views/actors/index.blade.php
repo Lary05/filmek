@@ -11,10 +11,14 @@
 <div style="display:flex; flex-wrap:wrap; gap:20px;">
     @foreach($actors as $actor)
         <div style="flex:1 1 200px; background-color:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); text-align:center;">
-            
+
             <!-- Actor kép -->
-            @if($actor->image)
-                <img src="{{ asset('storage/' . $actor->image) }}" alt="{{ $actor->name }}" style="width:100%; height:auto; border-radius:5px;">
+            @php
+                $actorImage = 'actors/actor_' . $actor->id . '.jpg';
+            @endphp
+
+            @if(Storage::disk('public')->exists($actorImage))
+                <img src="{{ asset('storage/' . $actorImage) }}" alt="{{ $actor->name }}" style="width:100%; height:auto; border-radius:5px;">
             @else
                 <div style="width:100%; height:150px; background-color:#ccc; display:flex; align-items:center; justify-content:center; border-radius:5px;">
                     No Image

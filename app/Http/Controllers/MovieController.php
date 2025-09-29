@@ -49,7 +49,7 @@ class MovieController extends Controller
         $movie->category_id = $request->category_id;
 
         if ($request->hasFile('cover_image')) {
-            $movie->cover_image = $request->file('cover_image')->store('movies', 'public');
+            $movie->cover_image = $request->file('cover_image')->store('films', 'public');
         }
 
         $movie->save();
@@ -99,7 +99,7 @@ class MovieController extends Controller
             if ($movie->cover_image) {
                 Storage::disk('public')->delete($movie->cover_image);
             }
-            $movie->cover_image = $request->file('cover_image')->store('movies', 'public');
+            $movie->cover_image = $request->file('cover_image')->store('films', 'public');
         }
 
         $movie->save();

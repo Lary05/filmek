@@ -6,9 +6,14 @@
 <p><strong>Description:</strong> {{ $actor->description }}</p>
 <p><strong>Birth Date:</strong> {{ $actor->birth_date }}</p>
 <p><strong>Gender:</strong> {{ $actor->gender }}</p>
-@if($actor->image)
+
+@php
+    $actorImage = 'actors/actor_' . $actor->id . '.jpg';
+@endphp
+
+@if(Storage::disk('public')->exists($actorImage))
     <p><strong>Image:</strong></p>
-    <img src="{{ asset('storage/' . $actor->image) }}" alt="Actor Image" width="200">
+    <img src="{{ asset('storage/' . $actorImage) }}" alt="{{ $actor->name }}" style="max-width:300px; height:auto; border-radius:5px;">
 @endif
 
 <a href="{{ route('actors.edit', $actor) }}">Edit</a>
