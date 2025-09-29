@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Actors List</h2>
+<h2>Színészek</h2>
 
 <!-- Add New Actor gomb -->
 <a href="{{ route('actors.create') }}">
-    <button style="margin-bottom:20px; background-color:#28a745; color:white;">Add New Actor</button>
+    <button style="margin-bottom:20px; background-color:#28a745; color:white;">Új színész</button>
 </a>
 
 <div style="display:flex; flex-wrap:wrap; gap:20px;">
@@ -21,7 +21,7 @@
                 <img src="{{ asset('storage/' . $actorImage) }}" alt="{{ $actor->name }}" style="width:100%; height:auto; border-radius:5px;">
             @else
                 <div style="width:100%; height:150px; background-color:#ccc; display:flex; align-items:center; justify-content:center; border-radius:5px;">
-                    No Image
+                    Nincs kép
                 </div>
             @endif
 
@@ -31,17 +31,17 @@
 
             <div style="margin-top:10px; display:flex; justify-content:center; gap:5px; flex-wrap: wrap;">
                 <a href="{{ route('actors.edit', $actor) }}">
-                    <button style="background-color:#007BFF; color:white;">Edit</button>
+                    <button style="background-color:#007BFF; color:white;">Szerkesztés</button>
                 </a>
 
                 <form action="{{ route('actors.destroy', $actor) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" style="background-color:#dc3545; color:white;">Delete</button>
+                    <button type="submit" style="background-color:#dc3545; color:white;">Törlés</button>
                 </form>
 
                 <a href="{{ route('actors.show', $actor) }}">
-                    <button style="background-color:#17a2b8; color:white;">View</button>
+                    <button style="background-color:#17a2b8; color:white;">Megtekintés</button>
                 </a>
             </div>
         </div>

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Movies List</h2>
+<h2>Filmek</h2>
 
 <!-- Add New Movie gomb -->
 <a href="{{ route('movies.create') }}">
-    <button style="margin-bottom:20px; background-color:#28a745; color:white;">Add New Movie</button>
+    <button style="margin-bottom:20px; background-color:#28a745; color:white;">Új film</button>
 </a>
 
 <!-- Filmek kártyákban -->
@@ -20,7 +20,7 @@
                 </a>
             @else
                 <div style="width:100%; height:150px; background-color:#ccc; display:flex; align-items:center; justify-content:center; border-radius:5px;">
-                    No Image
+                    Nincs kép
                 </div>
             @endif
 
@@ -28,23 +28,23 @@
             <h3 style="margin:10px 0 5px 0;">
                 <a href="{{ route('movies.show', $movie) }}" style="text-decoration:none; color:#333;">{{ $movie->title }}</a>
             </h3>
-            <p style="font-size:14px; color:#666;">Director: {{ $movie->director->name }}</p>
-            <p style="font-size:14px; color:#666;">Category: {{ $movie->category->name }}</p>
+            <p style="font-size:14px; color:#666;">Rendező: {{ $movie->director->name }}</p>
+            <p style="font-size:14px; color:#666;">Kategória: {{ $movie->category->name }}</p>
 
             <!-- CRUD gombok -->
             <div style="margin-top:10px; display:flex; justify-content:center; gap:5px; flex-wrap: wrap;">
                 <a href="{{ route('movies.edit', $movie) }}">
-                    <button style="background-color:#007BFF; color:white;">Edit</button>
+                    <button style="background-color:#007BFF; color:white;">Szerkesztés</button>
                 </a>
 
                 <form action="{{ route('movies.destroy', $movie) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" style="background-color:#dc3545; color:white;">Delete</button>
+                    <button type="submit" style="background-color:#dc3545; color:white;">Törlés</button>
                 </form>
 
                 <a href="{{ route('movies.show', $movie) }}">
-                    <button style="background-color:#17a2b8; color:white;">View</button>
+                    <button style="background-color:#17a2b8; color:white;">Megtekintés</button>
                 </a>
             </div>
         </div>

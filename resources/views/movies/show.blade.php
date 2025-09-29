@@ -11,31 +11,31 @@
 @endif
 
 <!-- Film adatok -->
-<p><strong>Description:</strong> {{ $movie->description ?? 'No description available.' }}</p>
-<p><strong>Director:</strong> {{ $movie->director->name }}</p>
-<p><strong>Category:</strong> {{ $movie->category->name }}</p>
+<p><strong>Leírás:</strong> {{ $movie->description ?? 'No description available.' }}</p>
+<p><strong>Rendező:</strong> {{ $movie->director->name }}</p>
+<p><strong>Kategória:</strong> {{ $movie->category->name }}</p>
 
 <!-- Színészek -->
-<p><strong>Actors:</strong>
+<p><strong>Színészek:</strong>
     @if($movie->actors->count())
         @foreach($movie->actors as $actor)
             <a href="{{ route('actors.show', $actor) }}">{{ $actor->name }}</a>{{ !$loop->last ? ', ' : '' }}
         @endforeach
     @else
-        No actors assigned.
+        Nincs hozzátartozó színész
     @endif
 </p>
 
 <!-- Akciógombok -->
 <a href="{{ route('movies.edit', $movie) }}">
-    <button>Edit</button>
+    <button>Szerkesztés</button>
 </a>
 
 <form action="{{ route('movies.destroy', $movie) }}" method="POST" style="display:inline;">
     @csrf
     @method('DELETE')
-    <button type="submit" style="background-color:#dc3545;">Delete</button>
+    <button type="submit" style="background-color:#dc3545;">Törlés</button>
 </form>
 
-<a href="{{ route('movies.index') }}" style="margin-left:10px;">Back to list</a>
+<a href="{{ route('movies.index') }}" style="margin-left:10px;">Vissza</a>
 @endsection

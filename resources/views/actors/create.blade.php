@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Add New Actor</h2>
+<h2>Új színész</h2>
 
 @if ($errors->any())
     <div style="color:red; margin-bottom:15px;">
@@ -17,24 +17,24 @@
     @csrf
 
     <div style="margin-bottom:15px;">
-        <label for="name">Name:</label><br>
+        <label for="name">Név:</label><br>
         <input type="text" name="name" id="name" value="{{ old('name') }}" required style="width:100%; padding:8px;">
     </div>
 
     <div style="margin-bottom:15px;">
-        <label for="description">Description:</label><br>
+        <label for="description">Leírás:</label><br>
         <textarea name="description" id="description" rows="4" style="width:100%; padding:8px;">{{ old('description') }}</textarea>
     </div>
 
     <div style="margin-bottom:15px;">
-        <label for="birth_date">Birth Date:</label><br>
+        <label for="birth_date">Születési dátum:</label><br>
         <input type="date" name="birth_date" id="birth_date" value="{{ old('birth_date') }}" style="width:100%; padding:8px;">
     </div>
 
     <div style="margin-bottom:15px;">
-        <label for="gender">Gender:</label><br>
+        <label for="gender">Nem:</label><br>
         <select name="gender" id="gender" style="width:100%; padding:8px;">
-            <option value="">-- Select Gender --</option>
+            <option value="">-- Válassz nemet --</option>
             <option value="férfi" {{ old('gender')=='férfi' ? 'selected' : '' }}>Férfi</option>
             <option value="nő" {{ old('gender')=='nő' ? 'selected' : '' }}>Nő</option>
             <option value="egyéb" {{ old('gender')=='egyéb' ? 'selected' : '' }}>Egyéb</option>
@@ -42,7 +42,7 @@
     </div>
 
     <div style="margin-bottom:15px;">
-        <label for="image">Actor Image:</label><br>
+        <label for="image">Kép:</label><br>
         <input type="file" name="image" id="image" accept="image/*">
     </div>
 

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Database</title>
+    <title>Filmtár</title>
     <style>
         /* Alap stílusok */
         body {
@@ -110,12 +110,12 @@
 <body>
     <!-- Header -->
     <header>
-        <h1>Movie Database</h1>
+        <h1>Filmtár</h1>
         <nav>
-            <a href="{{ route('dashboard') }}">Dashboard</a>
-            <a href="{{ route('movies.index') }}">Movies</a>
-            <a href="{{ route('movies.gallery') }}">Gallery</a>
-            <a href="{{ route('actors.index') }}">Actors</a>
+            <a href="{{ route('dashboard') }}">Adatok</a>
+            <a href="{{ route('movies.index') }}">Filmek</a>
+            <a href="{{ route('directors.index') }}">Rendezők</a>
+            <a href="{{ route('actors.index') }}">Színészek</a>
         </nav>
     </header>
 
